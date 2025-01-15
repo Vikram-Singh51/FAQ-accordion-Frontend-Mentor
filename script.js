@@ -1,9 +1,16 @@
-document.querySelectorAll('.faq-item').forEach(item => {
-      const button = item.querySelector('.toggle-button');
-      const answer = item.querySelector('.answer');
-    
-      button.addEventListener('click', () => {
-        answer.classList.toggle('hidden');
-        button.textContent = button.textContent === '+' ? '-' : '+';
-      });
-    });
+const questions = document.querySelectorAll(".questions div");
+
+questions.forEach((question) => {
+  question.addEventListener("click", () => {
+    const answer = question.nextElementSibling;
+    const icons = question.querySelector(".icon");
+
+    if (answer.style.display === "block") {
+      answer.style.display = "none";
+      icons.src = "/FAQ-accordion-Frontend-Mentor/icon-plus.svg";
+    } else {
+      answer.style.display = "block";
+      icons.src = "/FAQ-accordion-Frontend-Mentor/icon-minus.svg";
+    }
+  });
+});
